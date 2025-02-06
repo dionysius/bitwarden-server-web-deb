@@ -1,0 +1,2 @@
+apps/web/build/* usr/lib/bitwarden/Web
+debian/tmp/app-id.json etc/bitwarden

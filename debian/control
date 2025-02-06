@@ -1,0 +1,23 @@
+Source: bitwarden-server-web
+Section: web
+Priority: optional
+Build-Depends: debhelper-compat (= 13),
+               npm,
+Maintainer: dionysius <dragon.dionysius@gmail.com>
+Standards-Version: 4.6.1
+Vcs-Git: https://github.com/dionysius/bitwarden-server-web-deb.git
+Vcs-Browser: https://github.com/dionysius/bitwarden-server-web-deb
+Homepage: https://github.com/bitwarden/clients
+Rules-Requires-Root: no
+
+Package: bitwarden-server-web
+Architecture: all
+Pre-Depends: ${misc:Pre-Depends},
+Depends: ${misc:Depends},
+Recommends: ${misc:Recommends},
+Built-Using: ${misc:Built-Using},
+Description: Web vault frontend for bitwarden-server
+ Password manager for securely storing, managing, and sharing sensitive online
+ data such as passwords, passkeys, and credit cards.
+ .
+ This package contains the Bitwarden web vault frontend data

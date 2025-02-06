@@ -1,0 +1,37 @@
+name: deb packaging
+
+on:
+  push:
+    tags:
+      - 'debian/*.*.*-*'
+      - 'test/*'
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  build-native:
+    uses: dionysius/gbp-gha/.github/workflows/gbp-native.yml@main
+    with:
+      # https://github.com/orgs/community/discussions/26671
+      DEBFULLNAME: dionysius (github-actions)
+      DEBEMAIL: dragon.dionysius+gha@gmail.com
+      before_build_deps_install: |
+        curl -sL https://deb.nodesource.com/setup_20.x | bash -
+        apt-get install -y nodejs
+    secrets:
+      GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+  release:
+    if: startsWith(github.event.ref, 'refs/tags/debian')
+    needs: [build-native]
+    uses: dionysius/gbp-gha/.github/workflows/release.yml@main
+  upload:
+    if: startsWith(github.event.ref, 'refs/tags/debian')
+    needs: [build-native]
+    uses: dionysius/gbp-gha/.github/workflows/upload-packagecloud.yml@main
+    with:
+      USERREPO: dionysius/vaultwarden
+    secrets:
+      PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
