@@ -1,3 +1,9 @@
+bitwarden-server-web (2025.1.2-1) unstable; urgency=medium
+
+  * disable packagecloud upload
+
+ -- dionysius <dragon.dionysius@gmail.com>  Fri, 07 Feb 2025 03:50:29 +0100
+
 bitwarden-server-web (2025.1.2-0) unstable; urgency=medium
 
   * init with v2025.1.2
