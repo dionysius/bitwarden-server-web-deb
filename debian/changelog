@@ -1,3 +1,9 @@
+bitwarden-server-web (2025.2.1-0) unstable; urgency=medium
+
+  * update to v2025.2.1, see also: https://github.com/bitwarden/clients/releases/tag/web-v2025.2.1
+
+ -- dionysius <dragon.dionysius@gmail.com>  Wed, 19 Feb 2025 21:09:11 +0100
+
 bitwarden-server-web (2025.1.2-1) unstable; urgency=medium
 
   * disable packagecloud upload
